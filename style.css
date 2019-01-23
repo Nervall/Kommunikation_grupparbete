@@ -258,8 +258,3 @@ body {
 .add-list-btn:hover {
     background-color: #cdd2d4;
 }
-
-.add-card-btn::after,
-.add-list-btn::after {
-    content: '...';
-}
