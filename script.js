@@ -4,15 +4,23 @@ let listButton = document.querySelector('#addList');
 let section = document.querySelector('section');
 let counter = 1;
 
-cardButton.addEventListener('click', addItem);
+cardButton.addEventListener('click', addCard);
 listButton.addEventListener('click', addList);
 
-function addItem(e) {
+function addCard(e) {
     let newItem = document.createElement('li');
-    newItem.setAttribute('contenteditable', 'true');
-    newItem.textContent = 'Skriv din text här...';
+    let textArea = document.createElement('textarea');
+    textArea.setAttribute('class', '.list-items textarea');
+    textArea.setAttribute('placeholder', 'Skriv din text här...')
+    //newItem.setAttribute('contenteditable', 'true');
+    //newItem.textContent = 'Skriv din text här...';
+    newItem.appendChild(textArea);
     cardList.appendChild(newItem);
 } 
+
+function removeListItem(){
+    //lst.removeChild(this.parentNode);
+}
 
 function addList(e) {
     counter ++;
@@ -20,8 +28,11 @@ function addList(e) {
     let h3 = document.createElement('h3');
     let ul = document.createElement('ul');
     let newItem = document.createElement('li');
-    newItem.setAttribute('contenteditable', 'true');
-    newItem.textContent = 'Skriv din text här...';
+    let textArea = document.createElement('textarea');
+    textArea.setAttribute('class', '.list-items textarea');
+    textArea.setAttribute('placeholder', 'Skriv din text här...')
+    //newItem.setAttribute('contenteditable', 'true');
+    //newItem.textContent = 'Skriv din text här...';
     let button = document.createElement('button');
     newList.setAttribute('class', 'list');
     h3.setAttribute('class', 'list-title');
@@ -34,22 +45,10 @@ function addList(e) {
     newList.appendChild(h3);
     newList.appendChild(ul);
     ul.appendChild(newItem);
-    newList.appendChild(button);
-}
-
-function addEventListerToBoard(id) {
-    
-}
-
-
-// list.insertBefore(newItem, list.childNodes[0]);
-// listButton
-
-/*
-    section.appendChild(newList);
-    newList.appendChild(h3);
-    newList.appendChild(ul);
-    ul.appendChild(newItem);
+    newItem.appendChild(textArea);
     newList.appendChild(button);
 
-*/
+}
+
+
+

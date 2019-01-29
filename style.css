@@ -3,8 +3,8 @@
     font-size: 10px;
 }
 
-*,
-*::before,
+*, 
+*::before, 
 *::after {
     box-sizing: border-box;
 }
@@ -220,9 +220,17 @@ body {
 }
 
 .list-items textarea {
-    height: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    border: 0;
+    overflow: hidden;
+    resize: vertical;
+    outline: none;
 }
 
+.list-items textarea:hover {
+    background-color: #eee;
+}
 
 .list-items li:hover {
     background-color: #eee;
@@ -250,7 +258,7 @@ body {
     font-size: 1.4rem;
     font-weight: 400;
     background-color: #e2e4e6;
-    color: #00000;
+    color: #000000;
     opacity: 0.5;
     padding: 1rem;
     border-radius: 0.3rem;
