@@ -1,11 +1,23 @@
 let cardList = document.querySelector('#list1');
-let cardButton = document.querySelector('#card1');
+console.log(cardList);
+//let parentId = document.querySelectorAll('.list-items');
+let cardButton = document.querySelectorAll('.add-card-btn');
+console.log(cardButton);
 let listButton = document.querySelector('#addList');
 let section = document.querySelector('section');
 let deleteItem = document.querySelector('.material-icons');
 let counter = 1;
 
-cardButton.addEventListener('click', addCard);
+if (cardButton === null) {
+    cardButton = document.querySelector('.add-card-btn');
+    cardButton.addEventListener('click', addCard)
+} else {
+    for (let i = 0; i < cardButton.length; i++) {
+        cardButton[i].addEventListener('click', addCard);
+    }
+}
+
+//cardButton.addEventListener('click', addCard);
 listButton.addEventListener('click', addList);
 deleteItem.addEventListener('click', removeListItem);
 
@@ -15,18 +27,31 @@ function addCard(e) {
     textArea.setAttribute('class', '.list-items textarea');
     textArea.setAttribute('placeholder', 'Skriv din text här...');
     let i = document.createElement('i');
-    //iText = '<i class="material-icons">clear</i>';
     i.setAttribute('class', 'material-icons');
     i.textContent = 'clear';
-    //newItem.setAttribute('contenteditable', 'true');
-    //newItem.textContent = 'Skriv din text här...';
     newItem.appendChild(textArea);
     newItem.appendChild(i);
     cardList.appendChild(newItem);
 } 
 
+function testAddCard(parentId, elementId) {
+
+}
+
+/*
+function addElement(parentId, elementTag, elementId, html) {
+    // Adds an element to the document
+    var p = document.getElementById(parentId);
+    var newElement = document.createElement(elementTag);
+    newElement.setAttribute('id', elementId);
+    newElement.innerHTML = html;
+    p.appendChild(newElement);
+}
+
+*/
+
 function removeListItem(){
-    list1.removeChild(this.parentNode);
+    cardList.removeChild(this.parentNode);
 }
 
 function addList(e) {
@@ -64,3 +89,38 @@ function addList(e) {
 
 //<i class="material-icons" id="delete">clear</i>
 
+/*
+function addElement(parentId, elementTag, elementId, html) {
+    // Adds an element to the document
+    var p = document.getElementById(parentId);
+    var newElement = document.createElement(elementTag);
+    newElement.setAttribute('id', elementId);
+    newElement.innerHTML = html;
+    p.appendChild(newElement);
+}
+
+function removeElement(elementId) {
+    // Removes an element from the document
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+}
+
+<form enctype="multipart/form-data" action="" method="post">
+    <p>Upload file(s)</p>
+    <div id="files">
+        <p><input type="file" name="uploaded_file[]" /></p>
+    </div>
+    <p><input type="button" value="Add File" onclick="addFile();" /></p>
+</form>
+
+var fileId = 0; // used by the addFile() function to keep track of IDs
+function addFile() {
+    fileId++; // increment fileId to get a unique ID for the new element
+    var html = '<input type="file" name="uploaded_files[]" /> ' +
+               '<a href="" onclick="javascript:removeElement('file-' + fileId + ''); return false;">Remove</a>';
+    addElement('files', 'p', 'file-' + fileId, html);
+}
+
+
+
+*/
