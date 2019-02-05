@@ -19,16 +19,22 @@ for (let i = 0; i < deleteItem.length; i++) {
 
 
 
-function addCard(e, id) {
+function addCard(e) {
     //let target = e.target
     let list = e.target.id;
+    let ul;
+    if (list === 'card'+counter) {
+        ul = '#list'+counter;
+    }
+    console.log(ul);
+    //console.log(list);
     /*
     let ul = document.querySelectorAll('ul')
     for (let i = 0; i < ul.length; i++) {
         ul[i].getAttribute('id');
     }
     */
-    ulId = document.querySelector('#'+list);
+    ul= document.querySelector('#list'+counter);
     let li = document.createElement('li');
     let textArea = document.createElement('textarea');
     textArea.setAttribute('class', '.list-items textarea');
@@ -39,7 +45,7 @@ function addCard(e, id) {
     iElem.addEventListener('click', removeCard);
     li.appendChild(textArea);
     li.appendChild(iElem);
-    ulId.appendChild(li);
+    ul.appendChild(li);
 } 
 
 function removeCard(e){
@@ -82,6 +88,7 @@ function addList(e) {
     newItem.appendChild(textArea);
     newItem.appendChild(iElem);
     newList.appendChild(button); 
+    return ul;
 }
 
 /*
