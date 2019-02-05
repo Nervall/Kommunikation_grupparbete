@@ -8,6 +8,7 @@ listButton.addEventListener('click', addList);
 let cardButton = document.querySelectorAll('.add-card-btn');
 for (let i = 0; i < cardButton.length; i++) {
     cardButton[i].addEventListener('click', addCard);
+    console.log(cardButton);
 }
 
 let deleteItem = document.querySelectorAll('.material-icons');
@@ -17,7 +18,7 @@ for (let i = 0; i < deleteItem.length; i++) {
 
 let counter = 1;
 
-function addCard(e) {
+function addCard(e, id) {
     let target = e.target
     console.log(target);
     let newItem = document.createElement('li');
@@ -44,22 +45,19 @@ function removeCard(e){
 function addList(e) {
     counter ++;
     let newList = document.createElement('div');
+    newList.setAttribute('id', 'list' + counter);
+    newList.setAttribute('class', 'list');
     let h3 = document.createElement('h3');
     let ul = document.createElement('ul');
     let newItem = document.createElement('li');
     let textArea = document.createElement('textarea');
     textArea.setAttribute('class', '.list-items textarea');
     textArea.setAttribute('placeholder', 'Skriv din text här...')
-    let iElem = document.createElement('ielem');
-    //iText = '<i class="material-icons">clear</i>';
+    let iElem = document.createElement('i');
     iElem.setAttribute('class', 'material-icons');
     iElem.textContent = 'clear';
     iElem.addEventListener('click', removeCard);
-    //i.innerHTML = iText;
-    //newItem.setAttribute('contenteditable', 'true');
-    //newItem.textContent = 'Skriv din text här...';
     let button = document.createElement('button');
-    newList.setAttribute('class', 'list');
     h3.setAttribute('class', 'list-title');
     h3.setAttribute('contenteditable', 'true');
     ul.setAttribute('class', 'list-items');
@@ -72,6 +70,8 @@ function addList(e) {
     newList.appendChild(h3);
     newList.appendChild(ul);
     ul.appendChild(newItem);
+    newItem.appendChild(textArea);
+    newItem.appendChild(iElem);
     newList.appendChild(button); 
 }
 
