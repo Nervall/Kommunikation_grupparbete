@@ -1,4 +1,6 @@
-let cardList = document.querySelector('#list1');
+let counter = 1;
+
+let cardList = document.querySelector('#list'+counter);
 
 let listButton = document.querySelector('#addList');
 let section = document.querySelector('section');
@@ -8,7 +10,6 @@ listButton.addEventListener('click', addList);
 let cardButton = document.querySelectorAll('.add-card-btn');
 for (let i = 0; i < cardButton.length; i++) {
     cardButton[i].addEventListener('click', addCard);
-    console.log(cardButton);
 }
 
 let deleteItem = document.querySelectorAll('.material-icons');
@@ -16,12 +17,19 @@ for (let i = 0; i < deleteItem.length; i++) {
     deleteItem[i].addEventListener('click', removeCard, false);
 }
 
-let counter = 1;
+
 
 function addCard(e, id) {
-    let target = e.target
-    console.log(target);
-    let newItem = document.createElement('li');
+    //let target = e.target
+    let list = e.target.id;
+    /*
+    let ul = document.querySelectorAll('ul')
+    for (let i = 0; i < ul.length; i++) {
+        ul[i].getAttribute('id');
+    }
+    */
+    ulId = document.querySelector('#'+list);
+    let li = document.createElement('li');
     let textArea = document.createElement('textarea');
     textArea.setAttribute('class', '.list-items textarea');
     textArea.setAttribute('placeholder', 'Skriv din text här...');
@@ -29,9 +37,9 @@ function addCard(e, id) {
     iElem.setAttribute('class', 'material-icons');
     iElem.textContent = 'clear';
     iElem.addEventListener('click', removeCard);
-    newItem.appendChild(textArea);
-    newItem.appendChild(iElem);
-    cardList.appendChild(newItem);
+    li.appendChild(textArea);
+    li.appendChild(iElem);
+    ulId.appendChild(li);
 } 
 
 function removeCard(e){
@@ -61,6 +69,7 @@ function addList(e) {
     h3.setAttribute('class', 'list-title');
     h3.setAttribute('contenteditable', 'true');
     ul.setAttribute('class', 'list-items');
+    ul.setAttribute('id', 'list' + counter);
     button.setAttribute('class', 'add-card-btn btn');
     button.setAttribute('id', 'card' + counter);
     button.addEventListener('click', addCard);
