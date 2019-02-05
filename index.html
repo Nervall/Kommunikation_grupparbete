@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script src="script.js" defer></script>
     <title>Trello Grupparbete</title>
   </head>
   <body>
@@ -46,30 +48,17 @@
 <section class="lists-container">
 
 	<div class="list">
-		<h3 class="list-title">Backlog</h3>
-		<ul class="list-items">
-        <li>Skapa tre boards</li>
-        <li>Skapa items</li>
+		<h3 class="list-title" contenteditable="true">Backlog</h3>
+		<ul class="list-items" id="list1">
+				<li>
+					<textarea class=".list-items textarea" placeholder="Skriv din text här..."></textarea>
+					<i class="material-icons">clear</i>
+				</li>
 		</ul>
-		<button class="add-card-btn btn">+ Lägg till ett kort</button>
+		<button class="add-card-btn btn" id="card1">+ Lägg till ett kort</button>
 	</div>
-
-	<div class="list">
-		<h3 class="list-title">In progress</h3>
-		<button class="add-card-btn btn">+ Lägg till ett kort</button>
-	</div>
-
-	<div class="list">
-		<h3 class="list-title">Done</h3>
-		<ul class="list-items">
-      <li>CSS</li>
-		</ul>
-		<button class="add-card-btn btn">+ Lägg till ett kort</button>
-	</div>
-  <button class= add-list-btn>Lägg till en lista</button>
-</section>
-<!-- End of lists container -->
-
+  	<button class="add-list-btn" id="addList">Lägg till en lista</button>
+	</section>
   </body>
 </html>
->>>>>>> 370378eee0415cd51d142a0e90d53aa80b872278
+
