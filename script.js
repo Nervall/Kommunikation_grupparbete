@@ -19,15 +19,7 @@ for (let i = 0; i < deleteItem.length; i++) {
 
 
 
-function addCard(e,ul) {
-    /*
-    let list = e.target.id;
-
-    if (list === 'card'+counter) {
-        ul = '#list'+counter;
-    }
-    console.log(ul);
-*/
+function addCard(e) {
     ul = document.querySelectorAll('#list'+counter);
     for (let i = 0; i < ul.length; i++) {
          console.log(ul[i]);
@@ -43,8 +35,7 @@ function addCard(e,ul) {
     iElem.addEventListener('click', removeCard);
     li.appendChild(textArea);
     li.appendChild(iElem);
-    ul.appendChild(li);
-     
+    ul.appendChild(li); 
 } 
 
 function removeCard(e){
@@ -77,6 +68,7 @@ function addList(e) {
     button.setAttribute('class', 'add-card-btn btn');
     button.setAttribute('id', 'card' + counter);
     button.addEventListener('click', addCard);
+    console.log(button);
     h3.textContent = 'En ny lista';
     button.textContent = '+ Lägg till ett kort';
     section.insertBefore(newList, listButton);
