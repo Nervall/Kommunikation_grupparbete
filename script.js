@@ -19,22 +19,20 @@ for (let i = 0; i < deleteItem.length; i++) {
 
 
 
-function addCard(e) {
-    //let target = e.target
+function addCard(e,ul) {
+    /*
     let list = e.target.id;
-    let ul;
+
     if (list === 'card'+counter) {
         ul = '#list'+counter;
     }
     console.log(ul);
-    //console.log(list);
-    /*
-    let ul = document.querySelectorAll('ul')
+*/
+    ul = document.querySelectorAll('#list'+counter);
     for (let i = 0; i < ul.length; i++) {
-        ul[i].getAttribute('id');
+         console.log(ul[i]);
+         ul = ul[i];   
     }
-    */
-    ul= document.querySelector('#list'+counter);
     let li = document.createElement('li');
     let textArea = document.createElement('textarea');
     textArea.setAttribute('class', '.list-items textarea');
@@ -46,20 +44,19 @@ function addCard(e) {
     li.appendChild(textArea);
     li.appendChild(iElem);
     ul.appendChild(li);
+     
 } 
 
 function removeCard(e){
     let target = e.target;
-    let li = document.querySelectorAll('li');
-    for (let i = 0; i < li.length; i++) {
+        document.querySelector('li');
         target.parentNode.remove(this);
-    }
 }
 
 function addList(e) {
     counter ++;
     let newList = document.createElement('div');
-    newList.setAttribute('id', 'list' + counter);
+    newList.setAttribute('id', 'div' + counter);
     newList.setAttribute('class', 'list');
     let h3 = document.createElement('h3');
     let ul = document.createElement('ul');
@@ -76,6 +73,7 @@ function addList(e) {
     h3.setAttribute('contenteditable', 'true');
     ul.setAttribute('class', 'list-items');
     ul.setAttribute('id', 'list' + counter);
+    //let ulList = document.querySelector('ul');
     button.setAttribute('class', 'add-card-btn btn');
     button.setAttribute('id', 'card' + counter);
     button.addEventListener('click', addCard);
@@ -88,7 +86,6 @@ function addList(e) {
     newItem.appendChild(textArea);
     newItem.appendChild(iElem);
     newList.appendChild(button); 
-    return ul;
 }
 
 /*
