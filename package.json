@@ -1,0 +1,28 @@
+{
+  "name": "kommunikation_grupparbete",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --require @babel/register",
+    "build": "./node_modules/.bin/rollup src/controller.js --file bundle.js --format iife"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nervall/Kommunikation_grupparbete.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nervall/Kommunikation_grupparbete/issues"
+  },
+  "homepage": "https://github.com/Nervall/Kommunikation_grupparbete#readme",
+  "dependencies": {
+    "eslint": "^5.13.0",
+    "mocha": "^5.2.0",
+    "rollup": "^1.1.2"
+  }
+}
