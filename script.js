@@ -5,7 +5,8 @@ createButton.addEventListener('click', addList);
 
 function addCard(list) {
     console.log(list);
-    let ul = document.querySelector('#' + list);
+    //let ul = document.querySelector('#' + list);
+    let ul = list;
     console.log(ul);
     let li = document.createElement('li');
     let textArea = document.createElement('textarea');
@@ -22,8 +23,8 @@ function addCard(list) {
 
 function removeCard(e){
     let target = e.target;
-        document.querySelector('li');
-        target.parentNode.remove(this);
+    document.querySelector('li');
+    target.parentNode.remove(this);
 }
 
 function addList(e) {
@@ -51,7 +52,7 @@ function addList(e) {
     addCardButton.setAttribute('class', 'add-card-btn btn');
     addCardButton.setAttribute('id', 'card' + counter);
     addCardButton.addEventListener('click', function() {
-    addCard('list' + counter);
+    addCard(ul);
     });
     let addListButton = document.createElement('button');
     addListButton.setAttribute('class', 'add-list-btn');
