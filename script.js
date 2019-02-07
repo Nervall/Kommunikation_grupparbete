@@ -1,32 +1,12 @@
 let counter = 0;
 
-let cardList = document.querySelector('#list'+counter);
-
 let createButton = document.querySelector('#createList');
-console.log(createButton);
 createButton.addEventListener('click', addList);
-
-let cardButton = document.querySelectorAll('.add-card-btn');
-for (let i = 0; i < cardButton.length; i++) {
-    cardButton[i].addEventListener('click', addCard);
-}
-
-let deleteItem = document.querySelectorAll('.material-icons');
-for (let i = 0; i < deleteItem.length; i++) {
-    deleteItem[i].addEventListener('click', removeCard, false);
-}
 
 function addCard(list) {
     console.log(list);
     let ul = document.querySelector('#' + list);
     console.log(ul);
-    /*
-    ul = document.querySelectorAll('#list'+counter);
-    for (let i = 0; i < ul.length; i++) {
-         console.log(ul[i]);
-         ul = ul[i];   
-    }
-    */
     let li = document.createElement('li');
     let textArea = document.createElement('textarea');
     textArea.setAttribute('class', '.list-items textarea');
@@ -105,6 +85,4 @@ function addElement(parentId, elementTag, elementId, html) {
     newElement.innerHTML = html;
     p.appendChild(newElement);
 }
->>>>>>> develop_jim
-
 */
