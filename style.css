@@ -201,7 +201,7 @@ body {
     display: flex;
     flex-direction: column;
     align-content: start;
-    padding: 0 0.6rem 0.5rem 0.6rem;
+    padding: 0.9rem 0.6rem;
     overflow-y: auto;
 }
 
@@ -217,6 +217,7 @@ body {
     margin-bottom: 0.6rem;
     word-wrap: break-word;
     cursor: pointer;
+    position: relative;
 }
 
 .list-items li:hover {
@@ -241,7 +242,9 @@ body {
 }
 
 .material-icons {
-    font-size: 80%;
+    position: absolute;
+    top: 5px;
+    right: 5px;
     color: #bbb;
 }
 

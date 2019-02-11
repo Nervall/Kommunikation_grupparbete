@@ -6,115 +6,40 @@ let iBack;
 let createButton = document.querySelector('#createList');
 createButton.addEventListener('click', addList);
 
-function addCard(list) {
-    listCounter ++;
-    let ul = list;
-    let li = document.createElement('li');
-    li.setAttribute('id', 'list-item' + listCounter);
-    li.setAttribute('draggable', 'true');
-    let textArea = document.createElement('textarea');
-    textArea.setAttribute('class', '.list-items textarea');
-    textArea.setAttribute('placeholder', 'Skriv din text här...');
-    let iBack = document.createElement('i');
-    iBack.setAttribute('class', 'material-icons')
-    iBack.textContent = 'arrow_back';
-    
-    let iClear = document.createElement('i');
-    iClear.setAttribute('class', 'material-icons');
-    iClear.textContent = 'clear';
-    iClear.addEventListener('click', removeCard);
-    let iForward = document.createElement('i');
-    iForward.setAttribute('class', 'material-icons')
-    iForward.textContent = 'arrow_forward';
-    iForward.addEventListener('click', function(e) {
-        moveCard(e, ul, li, iForward, iBack);
-        });
-    iBack.addEventListener('click', function(e) {
-        moveCard(e, ul, li, iForward, iBack);
-        });
-    li.appendChild(textArea);
-    li.appendChild(iBack);
-    li.appendChild(iClear);
-    li.appendChild(iForward);
-    ul.appendChild(li); 
-} 
-
-
-function removeCard(e){
-    let target = e.target;
-    document.querySelector('li');
-    target.parentNode.remove(this);
-}
-
-
-function moveCard(e, ul, li, iForward, iBack) {
-    let number = ul.id;
-    let arr = number.split("");
-    let parse = parseInt(arr[4]);
-    let target = e.target;
-    let newId = ''
-
-    if (target === iForward) {
-        parse ++;
-        newId = '#list'+ parse;
-    }
-    if (target === iBack) {
-        parse --;
-        newId = '#list'+ parse;
-    }
-
-    let newParent = document.querySelector(newId);
-    if (!newParent) {
-        alert('there is no list to move this item, create a new List')
-    } else {
-    newParent.appendChild(li);
-    }
-   
-}
-
 var dragged;
-  /* events fired on the draggable target */
-  document.addEventListener("drag", function( event ) {
 
+  document.addEventListener("drag", function( event ) {
+      event.target.style.border = "1px dashed grey"
   }, false);
 
   document.addEventListener("dragstart", function( event ) {
-      // store a ref. on the dragged elem
       dragged = event.target;
-      // make it half transparent
       event.target.style.opacity = .5;
   }, false);
 
   document.addEventListener("dragend", function( event ) {
-      // reset the transparency
-      event.target.style.opacity = "";
+      event.target.style = "";
   }, false);
 
-  /* events fired on the drop targets */
   document.addEventListener("dragover", function( event ) {
-      // prevent default to allow drop
       event.preventDefault();
   }, false);
 
   document.addEventListener("dragenter", function( event ) {
-      // highlight potential drop target when the draggable element enters it
-      if ( event.target.className == "list-items" ) {
-          event.target.style.background = "purple";
+      if ( event.target.className === "list-items" ) {
+          event.target.style.background = "lightgrey";
       }
   }, false);
 
   document.addEventListener("dragleave", function( event ) {
-      // reset background of potential drop target when the draggable element leaves it
-      if ( event.target.className == "list-items" ) {
+      if ( event.target.className === "list-items" ) {
           event.target.style.background = "";
       }
   }, false);
 
   document.addEventListener("drop", function( event ) {
-      // prevent default action (open as link for some elements)
       event.preventDefault();
-      // move dragged elem to the selected drop target
-      if ( event.target.className == "list-items" ) {
+      if ( event.target.className === "list-items" ) {
           event.target.style.background = "";
           dragged.parentNode.removeChild( dragged );
           event.target.appendChild( dragged );
@@ -140,24 +65,11 @@ function addList(e) {
     iClear.setAttribute('class', 'material-icons');
     iClear.textContent = 'clear';
     iClear.addEventListener('click', removeCard);
-    let iForward = document.createElement('i');
-    iForward.setAttribute('class', 'material-icons')
-    iForward.textContent = 'arrow_forward';
-    let iBack = document.createElement('i');
-    iBack.setAttribute('class', 'material-icons')
-    iBack.textContent = 'arrow_back';
-    iBack.addEventListener('click', function(e) {
-        moveCard(e, ul, li, iForward, iBack);
-        });
-    iForward.addEventListener('click', function(e) {
-        moveCard(e, ul, li, iForward, iBack);
-        });
     let addCardButton = document.createElement('button');
     h3.setAttribute('class', 'list-title');
     h3.setAttribute('contenteditable', 'true');
     ul.setAttribute('class', 'list-items');
     ul.setAttribute('id', 'list' + counter);
-    //let ulList = document.querySelector('ul');
     addCardButton.setAttribute('class', 'add-card-btn btn');
     addCardButton.setAttribute('id', 'card' + counter);
     addCardButton.addEventListener('click', function() {
@@ -178,54 +90,32 @@ function addList(e) {
     newList.appendChild(ul);
     ul.appendChild(li);
     li.appendChild(textArea);
-    li.appendChild(iBack);
     li.appendChild(iClear);
-    li.appendChild(iForward);
     newList.appendChild(addCardButton); 
     section.appendChild(addListButton);
 }
 
+function addCard(list) {
+    listCounter ++;
+    let ul = list;
+    let li = document.createElement('li');
+    li.setAttribute('id', 'list-item' + listCounter);
+    li.setAttribute('draggable', 'true');
+    let textArea = document.createElement('textarea');
+    textArea.setAttribute('class', '.list-items textarea');
+    textArea.setAttribute('placeholder', 'Skriv din text här...');  
+    let iClear = document.createElement('i');
+    iClear.setAttribute('class', 'material-icons');
+    iClear.textContent = 'clear';
+    iClear.addEventListener('click', removeCard);
+    li.appendChild(textArea);
+    li.appendChild(iClear);
+    ul.appendChild(li); 
+} 
 
-/*
-
-function moveCardForward(ul, li, iForward, iBack) {
-    let number = ul.id;
-    let arr = number.split("");
-    let parse = parseInt(arr[4]);
-    parse ++;
-    number = 'list'+ parse;
-    let newParent = document.querySelector('#' + number);
-    if (newParent === null) {
-        alert('there is no list to move this item, create a new List')
-    } else {
-    newParent.appendChild(li);
-    iForward.addEventListener('click', function() {
-        moveCardForward(newParent, li, iForward, iBack);
-        });
-    iBack.addEventListener('click', function() {
-        moveCardBack(newParent, li, iBack, iForward);
-        });
-    }
+function removeCard(e){
+    let target = e.target;
+    document.querySelector('li');
+    target.parentNode.remove(this);
 }
 
-function moveCardBack(ul, li, iBack, iForward) {
-    let number = ul.id;
-    let arr = number.split("");
-    let parse = parseInt(arr[4]);
-    parse --;
-    number = 'list'+ parse;
-    console.log(number);
-    let newParent = document.querySelector('#' + number);
-    if (newParent === null) {
-        alert('there is no list to move this item, create a new List')
-    } else {
-    newParent.appendChild(li);
-    iBack.addEventListener('click', function() {
-        moveCardBack(newParent, li, iBack, iForward);
-        });
-    iForward.addEventListener('click', function() {
-        moveCardForward(newParent, li, iForward, iBack);
-        });
-    }
-}
-*/
