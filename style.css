@@ -181,7 +181,13 @@
  .add-list-btn:hover {
     background-color: #cdd2d4;
  }
-
+ .material-icons {
+    opacity: 0.5;
+    color: #bbb;
+}
+.material-icons:hover {
+    color: #838c91;
+}
 .overlay {
     position: fixed;
     width: 100%;
