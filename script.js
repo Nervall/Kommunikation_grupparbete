@@ -183,9 +183,13 @@ function addCard(list, value) {
     timedatecard.innerHTML = now.toLocaleString('sv-SE');
     timedatecard.setAttribute('class', 'timetagcard');
 
+    const licontainer = document.createElement("div");
+    licontainer.setAttribute('class', 'licontainer');
+
     textArea.value = value;
     li.appendChild(textArea);
-    li.appendChild(iClear);
-    li.appendChild(timedatecard);
+    li.appendChild(licontainer);
+    licontainer.appendChild(iClear);
+    licontainer.appendChild(timedatecard);
     ul.appendChild(li);
 } 
