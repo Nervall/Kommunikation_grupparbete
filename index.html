@@ -1,26 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="style.css">
-		<link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<script src="script.js" defer></script>
-    <title>Trello Grupparbete</title>
-  </head>
-  <body>
-    <!-- head -->
-    <header class="head">
-	     <div class="boards-menu">
-         <button class="boards-btn btn" id="createList">Lägg till en lista</button>
 
-            </div>
-        <div class="logo"><h1>Trello</h1></div>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="script.js" defer></script>
+  <title>Trello Grupparbete</title>
+</head>
 
-</header>
-<!-- End of head -->
+<body>
+  <div class="test">
+  <!-- head -->
+  <header class="head">
+    <div class="boards-menu">
+      <button class="boards-btn btn" id="createList">Lista</button>
+      <div class="board-search">
+        <input type="search" class="board-search-input">
+      </div>
+    </div>
+    <div class="logo">
+      <h1>Trello</h1>
+    </div>
 
-<!-- Lists container -->
-		<section class="lists-container"></section>
-	</body>
+    <div class="user-settings">
+      <button class="user-settings-btn btn" id="create"></button>
+      <button class="user-settings-btn btn" id="Information"></button>
+      <button class="user-settings-btn btn" id="Notifications"></button>
+      <button class="user-settings-btn btn" id="User Settings"></button>
+    </div>
+  </header>
+  <!-- End of head -->
+
+  <!-- Board info bar NAV-->
+  <nav class="board-info-bar">
+    <div class="board-controls">
+      <button class="board-title btn">Labb</button>
+      <button class="star-btn btn" aria-label="Star Board">*</button>
+      <button class="personal-btn btn">Personal</button>
+      <button class="private-btn btn">Private</button>
+    </div>
+    <button class="menu-btn btn">Show Menu</button>
+  </nav>
+  <!-- End of board info bar -->
+
+  <!-- Lists container -->
+    <section class="lists-container">
+
+    </section>
+  </div>
+</body>
+
 </html>
